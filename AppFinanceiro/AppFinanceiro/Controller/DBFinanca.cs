@@ -42,7 +42,7 @@ namespace AppFinanceiro.Controller
             }
             catch (Exception ex)
             {
-                StatusMessage = string.Format("Erro ao adcionar o registro. Error:{0}", ex.Message); //Jhowzera fraquinho
+                StatusMessage = string.Format("Erro ao adcionar o registro. Error:{0}", ex.Message); 
             }
         }
 
@@ -56,7 +56,19 @@ namespace AppFinanceiro.Controller
 
         }
 
-        //localizar
-        //mais um montão de coisas
+        public List<Financa> Localizar()
+        {
+            List<Financa> Lista = new List<Financa>();
+            try
+            {
+                Lista = conn.Table<Financa>().ToList();
+            }
+            catch (Exception ex)
+            {
+                //teste 1,2,3
+                StatusMessage = string.Format("Erro ao recuperar dados. {0}", ex.Message);
+            }
+            return Lista;
+        }
     }
 }

@@ -19,7 +19,31 @@ namespace AppFinanceiro.Controller
 
         public void Inserir(Financa financa)
         {
+            int result = 0;
 
+            try
+            {
+                if (string.IsNullOrEmpty(financa.Descricao))
+                    throw new Exception("Descrição Não poder ser Nulo");
+
+
+                if (string.IsNullOrEmpty(financa.TipoOperacao))
+                    throw new Exception("Descrição Não poder ser Nulo");
+
+                if (financa.Data == null)
+                    throw new Exception("Data da Finança não informada");
+
+                if (financa.Valor == 0)
+                    throw new Exception("Valor da Finança Nulo");
+
+                result = conn.Insert(financa);
+                StatusMessage = string.Format("{0} registro(s) adicionado(s):[Descrição: {1}, tipo:{2}, valor:{3}]",
+                result, financa.Descricao, financa.TipoOperacao, financa.Valor);
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = string.Format("Erro ao adcionar o registro. Error:{0}", ex.Message);//vinicius Gayzão
+            }
         }
 
         public void Alterar(Financa financa)

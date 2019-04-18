@@ -65,7 +65,6 @@ namespace AppFinanceiro.Controller
             }
             catch (Exception ex)
             {
-                //teste 1,2,3
                 StatusMessage = string.Format("Erro ao recuperar dados. {0}", ex.Message);
             }
             return Lista;

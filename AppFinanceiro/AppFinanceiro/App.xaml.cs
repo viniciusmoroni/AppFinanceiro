@@ -21,7 +21,7 @@ namespace AppFinanceiro
         {
             InitializeComponent();
             TbFinancas = new DBFinanca(dbPath);
-            dbPath = Path;
+            dbPath = path;
             MainPage = new MainPage();
         }
 

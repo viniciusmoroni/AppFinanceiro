@@ -5,10 +5,22 @@
              x:Class="AppFinanceiro.MainPage">
 
     <StackLayout>
-        <!-- Place new controls here -->
-        <Label x:Name="lbBanco" Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+        <ListView x:Name="Lista" HasUnevenRows="true" SeparatorColor="Aqua">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="Código:"/>
+                            <Label Text="{Binding Id}"/>
+                            <Label Text="Descrição:"/>
+                            <Label Text="{Binding Descricao}"/>
+                            <Label Text="Valor:"/>
+                            <Label Text="{Binding Valor}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
 
 </ContentPage>

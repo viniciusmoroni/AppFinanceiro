@@ -13,7 +13,6 @@ namespace AppFinanceiro
         public MainPage()
         {
             InitializeComponent();
-            lbBanco.Text = App.dbPath;
 
             //Criar uma finança
             Financa obj = new Financa();
@@ -22,6 +21,10 @@ namespace AppFinanceiro
             obj.Valor = 200;
             obj.Data = DateTime.Now;
 
+            App.TbFinancas.Inserir(obj);
+
+            List<Financa> Financas = App.TbFinancas.Localizar();
+            Lista.ItemsSource = Financas;
         }
     }
 }

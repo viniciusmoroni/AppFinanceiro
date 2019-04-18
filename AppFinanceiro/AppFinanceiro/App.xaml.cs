@@ -20,8 +20,8 @@ namespace AppFinanceiro
         public App(String path)
         {
             InitializeComponent();
-            TbFinancas = new DBFinanca(dbPath);
             dbPath = path;
+            TbFinancas = new DBFinanca(dbPath);
             MainPage = new MainPage();
         }
 
